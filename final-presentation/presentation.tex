@@ -1,0 +1,102 @@
+\documentclass[pdf]{beamer}
+\mode<presentation>{}
+
+%%packages
+\usepackage{graphicx}
+\usepackage{listings}
+%% preamble
+\title{Comparing the Interests of People in Different Cities Using Topic Analysis and Social Media}
+\subtitle{}
+\author{Jake Lasley, Alan Motta}
+
+\begin{document}
+%% title frame
+\begin{frame}
+  \titlepage
+
+\end{frame}
+
+%% Social Media
+\begin{frame}
+  \frametitle{Social Media}
+  What is social media?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Twitter \& Instagram}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\linewidth]{figures/instagram_logo.jpeg}
+        \caption{Instagram Logo}
+        \label{fig:ig_logo}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=\linewidth]{figures/twitter_logo.jpeg}
+        \caption{\label{fig:t_logo} Twitter Logo}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Problem With Instagram}
+  \begin{itemize}
+  \item Restrictive API
+
+  \item Low API request rates
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solution: Twitter}
+  \begin{itemize}
+  \item Twitter offers developer accounts (good API access)
+
+  \item Multiple search API end points
+
+  \item High request rates 
+
+  \end{itemize}
+\end{frame}
+
+% Gathering Data
+\begin{frame}
+  \frametitle{Data Gathering Process}
+  Steps:
+  \begin{enumerate}
+  \item Find users from different cities 
+  \item Collect tweets from each user
+  \item Analyze tweets 
+  \item Compare cities
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data Gathering Process}
+  Two main API endpoints:
+  \begin{itemize}
+  \item \textbf{users/search} : Returns pages of users (max 1k results, across max of 50 pages)
+
+  \item \textbf{statuses/user\_timeline} : Returns most recent 3,200 tweets of specified user
+    (if account is not private)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Data Gathering Process}
+  \framesubtitle{Querying For Data}
+  twurl: cURL like tool which wraps OAuth
+  \begin{verbatim}
+\$ twurl /1.1/users/search.json?q=City
+\$ twurl /1.1/statuses/timeline.json?id=user\_id
+\end{verbatim}
+\end{frame}
+
+\end{document}

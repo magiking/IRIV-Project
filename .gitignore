@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# tex junk
+*.toc
+*.aux
+*.out
+*.nav
+*.fls
+*.snm
+*.vrb
+*.fdb_latexmk
