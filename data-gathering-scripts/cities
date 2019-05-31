@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This is the command that I want to replicate
+#twurl /1.1/users/search.json?q=Denver >> denver.json
+
+city=$1
+for i in $(seq 1 50); do
+    echo "Requesting page $i of query $city"
+    twurl "/1.1/users/search.json?q=$city&page=$i" >> $city$i.json
+done

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+city="NewYork"
+while read line; do
+      id=$(echo $line | jq .id)
+      # use $id to call to the API endpoint
+      mkdir $city/$id/
+      twurl "/1.1/statuses/user_timeline.json?user_id=$id&count=200&trim_user=1" >> $city/$id/tweets.json
+done < $city/$city.txt
